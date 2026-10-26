@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>béo bèo beo</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Nhận Làm Bio Như Này ạ"/>
+    <meta name="keywords" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sf-static.upanhlaylink.com/img/image_2026040386bdab7879600d2bee033f35ee854787.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --bg-gradient: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            --primary: linear-gradient(135deg, #7f7fd5, #a07df0);
+            --accent: #d946ef;
+            --dark-bg: #050507;
+            --panel-bg: rgba(15, 15, 20, 0.65);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #e2e8f0;
+        }
+        @keyframes starsAnimation {
+            from { transform: translateY(0); }
+            to { transform: translateY(-2000px); }
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .snowflakes { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100; }
+        .snowflake { color: #fff; font-size: 1.2em; position: absolute; top: -10%; animation: fall linear infinite; opacity: 0.5; }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.116);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.082);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
+        }
+      .avatar-container{
+    position:relative;
+    width:120px;
+    height:120px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0;
+    margin:0 auto;
+}
+
+.avatar-container::before{
+    display:none !important;
+}
+        @keyframes rotateGlow { 100% { transform: rotate(360deg); } }
+        .btn-action {
+            background: white; width: 50px; height: 50px; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.06); color: #1e293b; transition: 0.3s;
+            flex-shrink: 0; border: 1px solid rgba(255,255,255,0.8);
+        }
+        .btn-action:hover {
+            background: var(--primary); color: white; transform: rotate(8deg) scale(1.1);
+        }
+        .list-container {
+            margin: 0 15px; background: rgba(255, 255, 255, 0.3);
+            border-radius: 30px; border: 1px solid rgba(255,255,255,0.4); overflow: hidden;
+        }
+        .list-row {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.2);
+            transition: 0.3s;
+        }
+        .list-row:hover { background: rgba(255,255,255,0.2); }
+        .list-row img {
+            width: 58px; height: 58px; border-radius: 18px;
+            object-fit: cover; border: 2px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .section-title { font-size: 24px; font-weight: 800; text-align: center; margin: 40px 0 20px; color: #06f591; text-transform: uppercase; letter-spacing: 1px; }
+        .faq-box {
+            width: 100px; height: 85px; border: 3px solid #1e293b; border-radius: 20px;
+            position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: 0.3s; background: white;
+        }
+        .faq-box:hover { background: #1e293b; color: white; transform: scale(1.1); }
+        .faq-box::after {
+            content: ''; position: absolute; bottom: -15px; left: 20px;
+            border-left: 10px solid transparent; border-right: 10px solid transparent;
+            border-top: 15px solid #1e293b;
+        }
+        @keyframes bg-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+        .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .particle {
+            position: absolute; width: 4px; height: 4px; background: white;
+            border-radius: 50%; opacity: 0.6; animation: floatParticle linear infinite;
+        }
+        @keyframes floatParticle {
+            from { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            20% { opacity: 1; }
+            to { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+        .mouse-glow {
+            position: fixed; width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(127,127,213,0.25), transparent 70%);
+            border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%);
+            z-index: 2; transition: 0.05s linear;
+        }
+        .verify { width: 31px; height: 31px; margin-left: 2px; vertical-align: -3px; }
+        .left-col { position: relative; z-index: 10; }
+        #overlay {
+            position: fixed; inset: 0; background: rgba(10, 10, 20, 0);
+            backdrop-filter: blur(0px); opacity: 0; pointer-events: none;
+            transition: all 0.4s ease; z-index: 9998;
+        }
+        #overlay.active { opacity: 1; pointer-events: auto; }
+        #bg-overlay {
+            position: fixed; inset: 0;
+            background: linear-gradient(to bottom, rgba(5, 5, 10, 0), rgba(5, 5, 10, 0));
+            backdrop-filter: blur(0px); z-index: 0; pointer-events: none;
+        }
+        .badge-new {
+            position: absolute; top: -8px; right: -8px; background: #3b82f6;
+            color: white; font-size: 10px; font-weight: bold; padding: 2px 8px;
+            border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 20;
+        }
+        .bg-dynamic {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden;
+        }
+        .bg-dynamic video {
+            position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%;
+            width: auto; height: auto; transform: translate(-50%, -50%); object-fit: cover;
+        }
+        .bg-dynamic img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .bg-dynamic .gradient-bg { width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .bg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+        body::after, body::before { display: none !important; }
+        .music-controls {
+            position: fixed; bottom: 20px; right: 20px; display: flex; gap: 10px; z-index: 1000;
+            background: rgba(255, 255, 255, 0.096); padding: 12px; border-radius: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px);
+        }
+        .music-btn {
+            width: 45px; height: 45px; background: rgba(251, 251, 252, 0.089); color: white;
+            border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease;
+        }
+        .music-btn:hover { transform: scale(1.1); background: rgba(243, 244, 245, 0.137); }
+        .select-btn { background: rgba(156, 89, 182, 0.452) !important; }
+        .song-list-panel {
+            position: fixed; bottom: 100px; right: 20px; background: rgba(255, 255, 255, 0.089);
+            backdrop-filter: blur(2px); border-radius: 15px; padding: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); z-index: 1001; width: 250px;
+            opacity: 0; transform: translateY(20px); transition: all 0.3s ease; pointer-events: none;
+        }
+        .song-list-panel.show { opacity: 1; transform: translateY(0); pointer-events: all; }
+        .song-list-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 10px; padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); font-weight: 600; color: #fff;
+        }
+        .close-list-btn { background: none; border: none; cursor: pointer; color: #ccc; font-size: 1.2rem; padding: 5px; }
+        .song-list-content { max-height: 200px; overflow-y: auto; }
+        .song-list-item {
+            display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px;
+            cursor: pointer; transition: all 0.2s ease; font-size: 14px; color: #fff; margin-bottom: 5px;
+        }
+        .song-list-item:hover { background: rgba(77, 171, 247, 0.2); }
+        .song-list-item.active { background: rgba(77, 171, 247, 0.3); color: #4dabf7; }
+        .song-notification {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px);
+            background: rgba(0, 0, 0, 0.473); color: white; padding: 12px 25px;
+            border-radius: 30px; z-index: 1002; backdrop-filter: blur(7px);
+            transition: all 0.5s ease; opacity: 0;
+        }
+        .song-notification.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        .notification-content { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; }
+        .side-banner {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(120px, 14vw, 220px);
+            max-height: calc(100vh - 140px);
+            z-index: 25;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 18px 55px rgba(0,0,0,0.25);
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(8px);
+        }
+        .side-banner.left { left: 24px; }
+        .side-banner.right { right: 24px; }
+        .side-banner img {
+            display: block;
+            width: 100%;
+            max-height: calc(100vh - 140px);
+            object-fit: cover;
+        }
+        @media (max-width: 1023px) {
+            .side-banner { display: none; }
+        }
+
+        /* ===== STYLE CHO ẢNH BUTTON SẢN PHẨM ===== */
+        .product-thumb {
+            width: 56px;
+            height: 56px;
+            min-width: 56px;
+            min-height: 56px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 2px solid rgba(255,255,255,0.9);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            flex-shrink: 0;
+        }
+
+        /* ===== MODAL BẢNG GIÁ ===== */
+        .price-modal-backdrop {
+            position: fixed; inset: 0; z-index: 10000;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .price-modal-backdrop.active {
+            display: flex;
+            opacity: 1;
+        }
+        .price-modal {
+            width: 100%;
+            max-width: 420px;
+            background: linear-gradient(160deg, #ffffff 0%, #f1f5ff 100%);
+            border-radius: 28px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            overflow: hidden;
+            transform: translateY(30px) scale(0.95);
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255,255,255,0.9);
+        }
+        .price-modal-backdrop.active .price-modal {
+            transform: translateY(0) scale(1);
+        }
+        .price-modal-header {
+            position: relative;
+            padding: 24px 22px 18px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            text-align: center;
+        }
+        .price-modal-header img {
+            width: 70px; height: 70px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,0.9);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            margin: 0 auto 12px;
+            display: block;
+            background: white;
+        }
+        .price-modal-header h3 {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+        }
+        .price-modal-close {
+            position: absolute;
+            top: 12px; right: 12px;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.25);
+            color: white;
+            border: none;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.25s;
+        }
+        .price-modal-close:hover { background: #ef4444; transform: rotate(90deg); }
+        .price-modal-body {
+            padding: 18px 20px 22px;
+            max-height: 55vh;
+            overflow-y: auto;
+        }
+        .price-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            border-radius: 16px;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            user-select: none;
+        }
+        .price-option:hover {
+            border-color: #93c5fd;
+            background: #eff6ff;
+            transform: translateX(3px);
+        }
+        .price-option.selected {
+            border-color: #3b82f6;
+            background: linear-gradient(135deg, #dbeafe, #ede9fe);
+            box-shadow: 0 6px 18px rgba(59,130,246,0.25);
+        }
+        .price-option .p-name {
+            font-weight: 800;
+            color: #1e293b;
+            font-size: 15px;
+        }
+        .price-option .p-price {
+            font-weight: 800;
+            color: #2563eb;
+            font-size: 15px;
+            white-space: nowrap;
+            margin-left: 8px;
+        }
+        .price-option .p-radio {
+            width: 22px; height: 22px;
+            min-width: 22px;
+            border-radius: 50%;
+            border: 2px solid #cbd5e1;
+            display: flex; align-items: center; justify-content: center;
+            transition: 0.25s;
+            margin-left: 10px;
+        }
+        .price-option.selected .p-radio {
+            border-color: #3b82f6;
+            background: #3b82f6;
+        }
+        .price-option.selected .p-radio::after {
+            content: '';
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+        .price-modal-footer {
+            padding: 0 20px 22px;
+        }
+        .buy-btn {
+            width: 100%;
+            padding: 15px;
+            border-radius: 16px;
+            border: none;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            font-weight: 800;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(59,130,246,0.4);
+            transition: all 0.3s ease;
+        }
+        .buy-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(59,130,246,0.55);
+        }
+        .buy-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        .buy-hint {
+            text-align: center;
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="pb-16" onload="startClock(); initMusicPlayer();">
+
+    <!-- Dynamic Background -->
+    <div class="bg-dynamic">
+                    <picture>
+                <source media="(min-width: 769px)" srcset="https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0885.png">
+                <source media="(max-width: 768px)" srcset="https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0885.png">
+                <img src="https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0885.png" alt="Background">
+            </picture>
+            </div>
+
+    <!-- Overlay -->
+    <div class="bg-overlay" style="background: #000000; opacity: 0;"></div>
+    <div id="overlay"></div>
+    <div id="bg-overlay"></div>
+
+    
+                        <div class="side-banner left">
+                        <img src="https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0831.jpeg" alt="Banner left">
+        </div>    
+    
+    <!-- Navbar top -->
+    <header class="bg-white/70 backdrop-blur-lg h-16 flex justify-between items-center px-6 sticky top-0 z-50 border-b border-white/50">
+                <span class="text-slate-800 font-black italic text-xl uppercase tracking-tighter">
+            <span class="text-blue-600">BEO</span>
+             MOD Z        </span>
+        <div class="flex items-center gap-3">
+            <span class="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
+            <i id="menuBtn" class="fa-solid fa-bars-staggered text-slate-800 text-2xl cursor-pointer"></i>
+        </div>
+    </header>
+
+<div id="sidebar">
+    <h2>DANH MỤC</h2>
+    <div class="category-tree">
+                    <div class="category-group">
+                                    <div class="parent-label">
+                        <i class="fas fa-folder"></i>
+                        Ksign                    </div>
+                
+                            </div>
+            </div>
+
+    </div>
+
+<div class="particles" id="particles"></div>
+<div class="mouse-glow" id="mouseGlow"></div>
+
+<style>
+    #sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100%;
+        background: rgba(20, 20, 30, 0.75);
+        backdrop-filter: blur(20px);
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.6);
+        padding: 24px;
+        border-top-left-radius: 24px;
+        border-bottom-left-radius: 24px;
+        transform: translateX(110%);
+        opacity: 0;
+        transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+        will-change: transform;
+        z-index: 9999;
+        overflow-y: auto;
+    }
+    #sidebar.active { transform: translateX(0); opacity: 1; }
+    #sidebar h2 {
+        font-size: 20px;
+        font-weight: 900;
+        color: white;
+        margin-bottom: 18px;
+        letter-spacing: 1px;
+    }
+    #sidebar h3 {
+        font-size: 12px;
+        font-weight: 900;
+        color: #93c5fd;
+        margin: 16px 0 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .sidebar-extra-title { margin-top: 24px; }
+    .category-tree {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .category-group {
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 8px;
+    }
+    .parent-label,
+    #sidebar a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 12px;
+        font-weight: 700;
+        color: #cbd5f5;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+    }
+    .parent-label,
+    #sidebar .parent-link {
+        color: #ffffff;
+        background: rgba(59, 130, 246, 0.16);
+    }
+    .child-list {
+        margin-top: 8px;
+        padding-left: 12px;
+        border-left: 1px solid rgba(147, 197, 253, 0.3);
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
+    #sidebar .child-link {
+        padding: 10px 12px;
+        font-size: 14px;
+        background: rgba(255, 255, 255, 0.035);
+        color: #dbeafe;
+    }
+    #sidebar > a { margin-bottom: 10px; }
+    #sidebar a:hover {
+        background: linear-gradient(135deg, #3b82f6, #a855f7);
+        color: white;
+        transform: translateX(8px) scale(1.03);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    }
+    #sidebar i { font-size: 16px; }
+</style>
+
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    menuBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+    });
+    overlay.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+    sidebar.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    });
+
+    const particlesContainer = document.getElementById('particles');
+    function createParticle() {
+        const p = document.createElement('div');
+        p.classList.add('particle');
+        const size = Math.random() * 4 + 2;
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        p.style.left = Math.random() * window.innerWidth + 'px';
+        p.style.animationDuration = (Math.random() * 5 + 5) + 's';
+        particlesContainer.appendChild(p);
+        setTimeout(() => p.remove(), 10000);
+    }
+    setInterval(createParticle, 200);
+
+    const glow = document.getElementById('mouseGlow');
+    document.addEventListener('mousemove', (e) => {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+    });
+</script>
+
+<div class="left-col relative z-10">
+    <div class="max-w-md mx-auto">
+
+        <div class="snowflakes">
+            <div class="snowflake" style="left:10%; animation-duration:10s;">❄</div>
+            <div class="snowflake" style="left:30%; animation-duration:8s;">•</div>
+            <div class="snowflake" style="left:50%; animation-duration:12s;">❄</div>
+            <div class="snowflake" style="left:70%; animation-duration:9s;">•</div>
+            <div class="snowflake" style="left:85%; animation-duration:15s;">❆</div>
+        </div>
+
+        <div class="flex flex-col items-center pt-10">
+           <div class="avatar-container relative w-40 h-40 flex items-center justify-center">
+
+    <!-- Avatar -->
+    <div class="w-28 h-28 rounded-full overflow-hidden">
+        <img src="https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0831.jpeg"
+             class="w-full h-full rounded-full object-cover">
+    </div>
+
+    <!-- Khung rồng nằm trên avatar (giữ nguyên bản gốc) -->
+    <img src="https://huutien.store/mong-vuot-rong.png"
+     class="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
+     style="transform: translateY(2px);">
+
+</div>
+
+            <p class="mt-6 font-bold italic text-sm tracking-widest uppercase bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                Welcome To            </p>
+
+            <h1 class="text-3xl font-black text-yellow-400 text-center mt-1 flex items-center justify-center gap-2">
+                BEO MOD Z                                    <img class="verify" src="https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/6003379740159775603.gif" alt="">
+                            </h1>
+
+            <p class="mt-6 font-bold italic text-sm tracking-widest uppercase bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(59,130,246,0.7)]">
+                E Là Beo E Chào Mọi Người Ạ.             </p>
+
+            <div class="flex gap-5 mt-8 flex-wrap justify-center">
+                                                                            <a href="https://www.tiktok.com/@nguyenminhbeo67?_r=1&amp;_t=ZS-96v4l2VsWBh"
+                       target="_blank" rel="noopener noreferrer"
+                       class="w-14 h-14 rounded-xl bg-white shadow-md flex items-center justify-center text-2xl hover:bg-blue-500 hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-xl"
+                       style="color: #3b82f6;">
+                                                    <i class="fa-brands fa-brands fa-tiktok"></i>
+                                            </a>
+                                                                            <a href="https://zalo.me/0993948348"
+                       target="_blank" rel="noopener noreferrer"
+                       class="w-14 h-14 rounded-xl bg-white shadow-md flex items-center justify-center text-2xl hover:bg-blue-500 hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-xl"
+                       style="color: #3b82f6;">
+                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg"
+                                 alt="Zalo"
+                                 class="w-7 h-7">
+                                            </a>
+                                                                            <a href="https://t.me/muadong_paris"
+                       target="_blank" rel="noopener noreferrer"
+                       class="w-14 h-14 rounded-xl bg-white shadow-md flex items-center justify-center text-2xl hover:bg-blue-500 hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-xl"
+                       style="color: #3b82f6;">
+                                                    <i class="fa-brands fa-brands fa-telegram"></i>
+                                            </a>
+                            </div>
+                    </div>
+
+        <div class="mt-10 space-y-4 px-4">
+                            <div class="glass-card p-5 flex items-center justify-between">
+                    <div class="flex items-center gap-4 min-w-0">
+                        <div class="w-12 h-12 min-w-[48px] min-h-[48px] bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-xl overflow-hidden flex-shrink-0">
+                                                            <i class="fa-solid fa-brands fa-telegram"></i>
+                                                    </div>
+                        <div class="min-w-0">
+                            <p class="font-black text-slate-700 break-words">BOX TELEGRAM 1</p>
+                            <p class="text-[10px] text-blue-500 font-bold uppercase tracking-tighter break-words">
+                                t.me                            </p>
+                        </div>
+                    </div>
+                    <a href="https://t.me/minhbeo001" class="btn-action flex-shrink-0">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+                            <div class="glass-card p-5 flex items-center justify-between">
+                    <div class="flex items-center gap-4 min-w-0">
+                        <div class="w-12 h-12 min-w-[48px] min-h-[48px] bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-xl overflow-hidden flex-shrink-0">
+                                                            <i class="fa-solid fa-brands fa-telegram"></i>
+                                                    </div>
+                        <div class="min-w-0">
+                            <p class="font-black text-slate-700 break-words">BOX TELEGRAM 2</p>
+                            <p class="text-[10px] text-blue-500 font-bold uppercase tracking-tighter break-words">
+                                t.me                            </p>
+                        </div>
+                    </div>
+                    <a href="https://t.me/minhbeostore" class="btn-action flex-shrink-0">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+                            <div class="glass-card p-5 flex items-center justify-between">
+                    <div class="flex items-center gap-4 min-w-0">
+                        <div class="w-12 h-12 min-w-[48px] min-h-[48px] bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-xl overflow-hidden flex-shrink-0">
+                                                            <i class="fa-solid fa-brands fa-telegram"></i>
+                                                    </div>
+                        <div class="min-w-0">
+                            <p class="font-black text-slate-700 break-words">BOX TELEGRAM 3</p>
+                            <p class="text-[10px] text-blue-500 font-bold uppercase tracking-tighter break-words">
+                                t.me                            </p>
+                        </div>
+                    </div>
+                    <a href="https://t.me/minhbeo003" class="btn-action flex-shrink-0">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+                    </div>
+
+        <!-- ==== 4 BUTTON SẢN PHẨM (có ảnh, nhấn hiện bảng giá) ==== -->
+        <div class="mt-8 px-4 space-y-4">
+
+            <!-- Button 1: Mizze IOS Safe -->
+            <div class="glass-card p-5 flex items-center justify-between cursor-pointer"
+                 onclick="openPriceModal('mizze')">
+                <div class="flex items-center gap-4 min-w-0">
+                    <img src="https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0890.jpeg"
+                         alt="Mizze IOS Safe" class="product-thumb">
+                    <div class="min-w-0">
+                        <p class="font-black text-slate-700 break-words">Mizze IOS Safe</p>
+                        <p class="text-[11px] text-blue-500 font-bold break-words">
+                            Xem bảng giá →
+                        </p>
+                    </div>
+                </div>
+                <div class="btn-action flex-shrink-0">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <!-- Button 2: IPA Migul Pro -->
+            <div class="glass-card p-5 flex items-center justify-between cursor-pointer"
+                 onclick="openPriceModal('migul')">
+                <div class="flex items-center gap-4 min-w-0">
+                    <img src="https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0888.jpeg"
+                         alt="IPA Migul Pro" class="product-thumb">
+                    <div class="min-w-0">
+                        <p class="font-black text-slate-700 break-words">IPA Migul Pro</p>
+                        <p class="text-[11px] text-blue-500 font-bold break-words">
+                            Xem bảng giá →
+                        </p>
+                    </div>
+                </div>
+                <div class="btn-action flex-shrink-0">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <!-- Button 3: TIPA SUDO -->
+            <div class="glass-card p-5 flex items-center justify-between cursor-pointer"
+                 onclick="openPriceModal('tipa')">
+                <div class="flex items-center gap-4 min-w-0">
+                    <img src="https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0889.jpeg"
+                         alt="TIPA SUDO" class="product-thumb">
+                    <div class="min-w-0">
+                        <p class="font-black text-slate-700 break-words">TIPA SUDO</p>
+                        <p class="text-[11px] text-blue-500 font-bold break-words">
+                            Xem bảng giá →
+                        </p>
+                    </div>
+                </div>
+                <div class="btn-action flex-shrink-0">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <!-- Button 4: Fl0rk IPA -->
+            <div class="glass-card p-5 flex items-center justify-between cursor-pointer"
+                 onclick="openPriceModal('fl0rk')">
+                <div class="flex items-center gap-4 min-w-0">
+                    <img src="https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0891.jpeg"
+                         alt="Fl0rk IPA" class="product-thumb">
+                    <div class="min-w-0">
+                        <p class="font-black text-slate-700 break-words">Fl0rk IPA</p>
+                        <p class="text-[11px] text-blue-500 font-bold break-words">
+                            Xem bảng giá →
+                        </p>
+                    </div>
+                </div>
+                <div class="btn-action flex-shrink-0">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+        <!-- ==== KẾT THÚC 4 BUTTON SẢN PHẨM ==== -->
+        
+    </div>
+</div>
+
+<!-- ============================================================= -->
+<!-- MODAL BẢNG GIÁ (dùng chung, JS đổi nội dung theo sản phẩm)    -->
+<!-- ============================================================= -->
+<div class="price-modal-backdrop" id="priceModal" onclick="if(event.target===this) closePriceModal()">
+    <div class="price-modal">
+        <div class="price-modal-header">
+            <button class="price-modal-close" onclick="closePriceModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="pmImage" src="https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0831.jpeg" alt="">
+            <h3 id="pmTitle">Tên sản phẩm</h3>
+        </div>
+        <div class="price-modal-body" id="pmBody">
+            <!-- các option gói sẽ được JS render vào đây -->
+        </div>
+        <div class="price-modal-footer">
+            <button class="buy-btn" id="pmBuyBtn" disabled onclick="buySelectedPackage()">
+                <i class="fa-brands fa-telegram"></i>
+                Mua Key
+            </button>
+            <p class="buy-hint">Chọn gói ở trên rồi nhấn "Mua Key" để liên hệ Telegram</p>
+        </div>
+    </div>
+</div>
+
+<div id="siteNoticeModal" class="fixed inset-0 z-[9999] hidden items-center justify-center px-4 py-6" style="background:rgba(0,0,0,.62);backdrop-filter:blur(10px)">
+    <div class="relative w-full max-w-md overflow-hidden rounded-[30px] bg-white shadow-[0_30px_100px_rgba(0,0,0,.45)] border border-white/70">
+        <button type="button" onclick="closeSiteNotice(false)" class="absolute right-3 top-3 z-10 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-red-500 transition">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        
+        <div class="p-6 text-center">
+            <div class="mx-auto mb-3 w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-2xl shadow-xl">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+
+            <h3 class="text-2xl font-black text-slate-900">
+                Thông Báo 🥨            </h3>
+
+                            <p class="mt-3 text-sm font-semibold text-slate-600 whitespace-pre-line">
+                    Box Tele : https://t.me/minhbeo001
+
+                </p>
+            
+            
+            <div class="mt-6 grid grid-cols-2 gap-3">
+                <button type="button" onclick="closeSiteNotice(false)" class="rounded-2xl bg-slate-100 text-slate-700 py-3 font-black hover:bg-slate-200 transition">
+                    Đóng
+                </button>
+                <button type="button" onclick="closeSiteNotice(true)" class="rounded-2xl bg-blue-600 text-white py-3 font-black hover:bg-blue-700 transition">
+                    Ẩn 2 giờ
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(){
+    const key = 'site_notice_hidden_until';
+    const hiddenUntil = Number(localStorage.getItem(key) || 0);
+    if (Date.now() < hiddenUntil) return;
+
+    window.addEventListener('DOMContentLoaded', function(){
+        const modal = document.getElementById('siteNoticeModal');
+        if (modal) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+    });
+})();
+
+function closeSiteNotice(hide2h){
+    const hideHours = 2;
+
+    if (hide2h) {
+        localStorage.setItem(
+            'site_notice_hidden_until',
+            String(Date.now() + hideHours * 60 * 60 * 1000)
+        );
+    }
+
+    const modal = document.getElementById('siteNoticeModal');
+    if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+}
+</script>
+
+
+<!-- ============================================================= -->
+<!-- SCRIPT MODAL BẢNG GIÁ SẢN PHẨM                                -->
+<!-- ============================================================= -->
+<script>
+const TELEGRAM_URL = "https://t.me/muadong_paris";
+
+const PRODUCTS = {
+    mizze: {
+        title: "Mizze IOS Safe",
+        image: "https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0831.jpeg",
+        packages: [
+            { name: "Day",   price: "20.000đ"  },
+            { name: "Week",  price: "75.000đ"  },
+            { name: "Month", price: "160.000đ" }
+        ]
+    },
+    migul: {
+        title: "IPA Migul Pro",
+        image: "https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0831.jpeg",
+        packages: [
+            { name: "Day",   price: "60.000đ"  },
+            { name: "Week",  price: "150.000đ" },
+            { name: "Month", price: "250.000đ" }
+        ]
+    },
+    tipa: {
+        title: "TIPA SUDO",
+        image: "https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0831.jpeg",
+        packages: [
+            { name: "Month", price: "170.000đ" }
+        ]
+    },
+    fl0rk: {
+        title: "Fl0rk IPA",
+        image: "https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0831.jpeg",
+        packages: [
+            { name: "Month", price: "200.000đ" }
+        ],
+        note: "FFTH & MAX"
+    }
+};
+
+let currentProductKey = null;
+let selectedPackageIndex = null;
+
+function openPriceModal(key) {
+    const product = PRODUCTS[key];
+    if (!product) return;
+
+    currentProductKey = key;
+    selectedPackageIndex = null;
+
+    // Header
+    document.getElementById('pmImage').src = product.image;
+    document.getElementById('pmTitle').textContent = product.title;
+
+    // Body: render packages
+    const body = document.getElementById('pmBody');
+    body.innerHTML = '';
+
+    product.packages.forEach((pkg, idx) => {
+        const div = document.createElement('div');
+        div.className = 'price-option';
+        div.dataset.index = idx;
+        div.innerHTML = `
+            <span class="p-name">${pkg.name}${product.note ? ' <span style="font-size:11px;color:#8b5cf6;">(' + product.note + ')</span>' : ''}</span>
+            <div style="display:flex;align-items:center;">
+                <span class="p-price">${pkg.price}</span>
+                <span class="p-radio"></span>
+            </div>
+        `;
+        div.addEventListener('click', () => selectPackage(idx));
+        body.appendChild(div);
+    });
+
+    // Reset nút mua
+    const btn = document.getElementById('pmBuyBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-brands fa-telegram"></i> Mua Key';
+
+    // Hiện modal
+    document.getElementById('priceModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function selectPackage(idx) {
+    selectedPackageIndex = idx;
+
+    // Bỏ selected tất cả
+    document.querySelectorAll('#pmBody .price-option').forEach((el, i) => {
+        el.classList.toggle('selected', i === idx);
+    });
+
+    // Enable nút mua
+    const btn = document.getElementById('pmBuyBtn');
+    btn.disabled = false;
+    const pkg = PRODUCTS[currentProductKey].packages[idx];
+    btn.innerHTML = `<i class="fa-brands fa-telegram"></i> Mua ${pkg.name} - ${pkg.price}`;
+}
+
+function buySelectedPackage() {
+    if (currentProductKey === null || selectedPackageIndex === null) return;
+
+    const product = PRODUCTS[currentProductKey];
+    const pkg = product.packages[selectedPackageIndex];
+
+    // Tạo nội dung tin nhắn tự động (tùy chọn)
+    const text = encodeURIComponent(
+        `Xin chào, mình muốn mua key:\n` +
+        `📦 Sản phẩm: ${product.title}\n` +
+        `⏱ Gói: ${pkg.name}\n` +
+        `💰 Giá: ${pkg.price}`
+    );
+
+    // Mở Telegram (có thể thêm ?text= nếu muốn điền sẵn)
+    window.open(TELEGRAM_URL, '_blank', 'noopener,noreferrer');
+
+    closePriceModal();
+}
+
+function closePriceModal() {
+    document.getElementById('priceModal').classList.remove('active');
+    document.body.style.overflow = '';
+    currentProductKey = null;
+    selectedPackageIndex = null;
+}
+
+// Đóng bằng phím ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('priceModal');
+        if (modal.classList.contains('active')) closePriceModal();
+    }
+});
+</script>
+
+
+<!-- ═══════════════════════════  FOOTER  ═══════════════════════════════════ -->
+<div class="text-center mt-14 mb-10">
+    <span class="inline-block text-[10px] font-black tracking-[0.4em] uppercase
+                 px-6 py-2 rounded-full border border-white/50 text-white/70">
+        © 2026 MINH BEO STORE    </span>
+</div>
+
+<!-- ═══════════════════════════  AUDIO PLAYER  ═══════════════════════════════ -->
+<audio id="bgMusic" preload="auto"></audio>
+
+
+<script>
+// ── Live clock ───────────────────────────────────────────────────────────────
+function startClock() {
+    const clockElements = document.querySelectorAll('.live-clock');
+    setInterval(() => {
+        const now     = new Date();
+        const timeStr = now.toLocaleTimeString('vi-VN', { hour12: false });
+        const dateStr = now.toLocaleDateString('vi-VN');
+        clockElements.forEach(el => { el.innerHTML = `🕒 ${timeStr} | ${dateStr}`; });
+    }, 1000);
+}
+
+// ── Music player ─────────────────────────────────────────────────────────────
+const playlist  = ["https://files.catbox.moe/x02zka.mp3","https://files.catbox.moe/x02zka.mp3"];
+const songNames = ["MUSIC","h"];
+const audioElem = document.getElementById('bgMusic');
+let currentSongIndex = 0;
+
+function initMusicPlayer() {
+    if (!playlist.length) return;
+
+    createMusicControls();
+    createSongList();
+    createSongNotification();
+
+    playCurrentSong();
+
+    // Không tự động phát nhạc
+    updateMusicIcons('pause');
+
+    audioElem.addEventListener('ended', playNextSong);
+}
+
+function createMusicControls() {
+    const controls = document.createElement('div');
+    controls.className = 'music-controls';
+    controls.innerHTML = `
+        <button class="music-btn" onclick="playPreviousSong()" title="Bài trước">
+            <i class="bi bi-skip-backward-fill"></i>
+        </button>
+        <button class="music-btn" onclick="togglePlayPause()" title="Phát/Tạm dừng">
+            <i class="bi bi-play-fill"  id="playIcon"></i>
+            <i class="bi bi-pause-fill" id="pauseIcon" style="display:none"></i>
+        </button>
+        <button class="music-btn" onclick="playNextSong()" title="Bài tiếp theo">
+            <i class="bi bi-skip-forward-fill"></i>
+        </button>
+        <button class="music-btn select-btn" onclick="openSongList()" title="Chọn bài hát">
+            <i class="bi bi-music-note-list"></i>
+        </button>
+    `;
+    document.body.appendChild(controls);
+}
+
+function createSongList() {
+    const songList = document.createElement('div');
+    songList.className = 'song-list-panel';
+    songList.innerHTML = `
+        <div class="song-list-header">
+            <span>Chọn bài hát</span>
+            <button class="close-list-btn" onclick="closeSongList()"><i class="bi bi-x"></i></button>
+        </div>
+        <div class="song-list-content">
+            ${songNames.map((song, i) => `
+                <div class="song-list-item ${i === currentSongIndex ? 'active' : ''}" onclick="selectSong(${i})">
+                    <i class="bi bi-music-note"></i>
+                    <span>${song}</span>
+                    ${i === currentSongIndex ? '<i class="bi bi-check"></i>' : ''}
+                </div>`).join('')}
+        </div>
+    `;
+    document.body.appendChild(songList);
+}
+
+function createSongNotification() {
+    const n = document.createElement('div');
+    n.className = 'song-notification';
+    n.innerHTML = `
+        <div class="notification-content">
+            <i class="bi bi-music-note-beamed"></i>
+            <span id="currentSongText">Đang phát: ${songNames[0]}</span>
+        </div>`;
+    document.body.appendChild(n);
+}
+
+function playCurrentSong() {
+    audioElem.src    = playlist[currentSongIndex];
+    audioElem.volume = 0.7;
+    audioElem.load();
+    document.querySelectorAll('.song-list-item')
+        .forEach((el, i) => el.classList.toggle('active', i === currentSongIndex));
+}
+
+function playNextSong() {
+    if (!playlist.length) return;
+    currentSongIndex = (currentSongIndex + 1) % playlist.length;
+    playCurrentSong();
+    audioElem.play();
+    updateMusicIcons('play');
+    showSongNotification();
+}
+
+function playPreviousSong() {
+    if (!playlist.length) return;
+    currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
+    playCurrentSong();
+    audioElem.play();
+    updateMusicIcons('play');
+    showSongNotification();
+}
+
+function togglePlayPause() {
+    if (!playlist.length) return;
+    if (audioElem.paused) { audioElem.play();  updateMusicIcons('play');  }
+    else                  { audioElem.pause(); updateMusicIcons('pause'); }
+}
+
+function updateMusicIcons(state) {
+    document.getElementById('playIcon').style.display  = state === 'play' ? 'none'  : 'block';
+    document.getElementById('pauseIcon').style.display = state === 'play' ? 'block' : 'none';
+}
+
+function openSongList()  { document.querySelector('.song-list-panel').classList.add('show');    }
+function closeSongList() { document.querySelector('.song-list-panel').classList.remove('show'); }
+
+function selectSong(index) {
+    if (!playlist[index]) return;
+    currentSongIndex = index;
+    playCurrentSong();
+    audioElem.play()
+        .then(() => { updateMusicIcons('play');  showSongNotification(); closeSongList(); })
+        .catch(() => { updateMusicIcons('pause'); showSongNotification(); closeSongList(); });
+}
+
+function showSongNotification() {
+    const n = document.querySelector('.song-notification');
+    document.getElementById('currentSongText').textContent = `Đang phát: ${songNames[currentSongIndex]}`;
+    n.classList.add('show');
+    setTimeout(() => n.classList.remove('show'), 3000);
+}
+
+
+
+// ── Boot ─────────────────────────────────────────────────────────────────────
+window.onload = function () { startClock(); initMusicPlayer(); };
+</script>
+
+</body>
+</html>
